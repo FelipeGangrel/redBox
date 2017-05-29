@@ -1,0 +1,226 @@
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'animate';
+@import 'variables';
+@import 'slick';
+
+html, body {
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+  font-family: 'Open Sans', sans-serif;
+  color: $grey_700;
+}
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+ 
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+ 
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
+.hexagon:before{
+  content: "\2B22";
+}
+
+section#navbar{ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $grey_50;
+  z-index: 10;
+  transition: all .5s ease-in-out;
+  .wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    transition: all .5s ease-in-out;
+    .menu{
+      ul{
+        @extend .list-unstyled;
+        margin: 0;
+        li {
+          display: inline-flex;
+          text-transform: uppercase;
+          padding: 0 10px;
+          a {
+            color: $grey_700;
+          }
+        }
+      }
+    }
+    .logo{
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+      a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../img/logo-icon.png');
+      }
+    }
+  }
+}
+
+  section#navbar.toggle{
+    box-shadow: 0px 0px 10px 5px rgba(#333, .3);
+    .wrapper {
+      height: 60px;
+      .logo{
+        opacity: 1;
+        animation: fadeInLeft;
+      }
+    }
+  }
+
+section#start{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $grey_50;
+  // background-image: url('../../img/start-bg.png');
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  position: relative;
+  div.logo{
+    width: 256px;
+    height: 164px;
+    a{
+      display: block;
+      widows: 100%;
+      height: 100%;
+      background-image: url('../../img/redbox.png');
+    }
+  }
+  div.proximo{
+    position: absolute;
+    bottom: 50px;
+    z-index: 9;
+    width: 100px;
+    height: 100px;
+    font-size: 100px;
+    text-align: center;
+    color: $red_500;
+    cursor: pointer;
+    @extend .hexagon;
+    &:hover{
+      transition: color .5s ease-in-out;
+      color: $red-700;
+    }
+    div.icone{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      top: 30px;
+      text-align: center;
+      line-height: 100px;
+      font-size: 30px;
+      color: $grey_50;
+    }
+  }
+}
+
+section#banners{
+  #slider-produtos{
+    position: relative;
+    .slick-slide{
+      min-height: 600px;
+      background-image: url('../../img/slide.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      font-size: 1.5rem;
+      .row{
+        min-height: 600px;
+      }
+      h2{
+        text-transform: uppercase;
+        color: $red_500;
+        font-weight: 700;
+      }
+    }
+    ul.slick-dots{
+      @extend .list-unstyled;
+      position: absolute;
+      bottom: 10px;
+      height: 10px;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      li {
+        margin: 0 10px;
+        button {
+          width: 100px;
+          height: 10px;
+          font-size: 0;
+          border: none;
+          border-radius: 0;
+          outline: none;
+          background-color: $grey_50;
+        }
+      }
+      li.slick-active{
+        button {
+          background-color: $red_500;
+        }
+      }
+    }
+  }
+}
+
+.section-title{
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+section#intro{
+  padding: 100px 0;
+}
+
+section#depoimentos{
+  padding: 100px 0;
+  background-color: #414141;
+  color: $grey_200;
+  // .section-title{ color: $red_900 }
+  .slick-slide{
+    font-size: 1.5rem;
+    text-align: center;
+    .avatar{
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      margin: 0 auto 20px auto;
+      background-size: cover;
+      background-position: center center;
+      border-radius: 50%;
+      border: 2px solid rgba(#333, 1);
+    }
+    p.depoimento{
+
+    }
+    p.nome{
+      font-size: 1rem;
+    }
+  }
+
+}
