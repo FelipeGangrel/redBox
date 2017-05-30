@@ -38,4 +38,12 @@ $(document).ready(function () {
     infinite: true,
     arrows: false
   });
+
+  // Mapa 
+
+  new GMaps({
+    div: "#mapa",
+    lat: -12.043333,
+    lng: -77.028333
+  });
 });

@@ -16,7 +16,6 @@ $(document).ready(()=>{
       event.preventDefault();
   });
 
-
   let posicaoLimiar = $('#banners').offset().top;
 
   $(window).scroll( function(event){
@@ -27,7 +26,6 @@ $(document).ready(()=>{
       }
   });
 
-
   $('#slider-produtos').slick({
     infinite: true,
     arrows: false,
@@ -37,6 +35,14 @@ $(document).ready(()=>{
   $('#slider-depoimentos').slick({
     infinite: true,
     arrows: false
+  });
+
+  // Mapa 
+
+  new GMaps({
+      div: "#mapa",
+      lat: -12.043333,
+      lng: -77.028333
   });
 
 });

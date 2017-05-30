@@ -19,6 +19,7 @@ var plugins = [
   './node_modules/bootstrap/dist/js/bootstrap.min.js',
   './src/js/slick.js', //https://github.com/kenwheeler/slick/
   './src/js/wow.js', //https://wowjs.uk/docs.html
+  './src/js/gmaps.js', //https://hpneo.github.io/gmaps/
 ];
 
 gulp.task('plugins', ()=>{
