@@ -1,5 +1,6 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'animate';
+@import 'mixins';
 @import 'variables';
 @import 'slick';
 
@@ -9,28 +10,6 @@ html, body {
   color: $grey_700;
 }
 
-@mixin breakpoint($class) {
-  @if $class == xs {
-    @media (max-width: 767px) { @content; }
-  }
- 
-  @else if $class == sm {
-    @media (min-width: 768px) { @content; }
-  }
- 
-  @else if $class == md {
-    @media (min-width: 992px) { @content; }
-  }
- 
-  @else if $class == lg {
-    @media (min-width: 1200px) { @content; }
-  }
- 
-  @else {
-    @warn "Breakpoint mixin supports: xs, sm, md, lg";
-  }
-}
-
 .hexagon:before{
   content: "\2B22";
 }
@@ -38,7 +17,6 @@ html, body {
 .btn{
   border-radius: 0;
 }
-
 
 section#navbar{ 
   position: fixed;
@@ -64,7 +42,12 @@ section#navbar{
           text-transform: uppercase;
           padding: 0 10px;
           a {
-            color: $grey_700;
+            color: darken($grey_300, 20%);
+            text-decoration: none;
+            transition: color .5s ease;
+            &:hover{
+              color: $grey_700;
+            }
           }
         }
       }
@@ -84,7 +67,7 @@ section#navbar{
 }
 
   section#navbar.toggle{
-    box-shadow: 0px 0px 10px 5px rgba(#333, .3);
+    box-shadow: 0px 0px 10px 5px rgba(#333, .1);
     .wrapper {
       height: 60px;
       .logo{
@@ -198,6 +181,7 @@ section#banners{
 }
 
 section#intro{
+  overflow: hidden;
   .coluna{
     display: flex;
     align-items: center;
@@ -213,14 +197,22 @@ section#intro{
         max-width: 570px;
       }
     }
-    &.coluna-2{ background-color: $red_500; color: $grey-50; }
-    &.coluna-3{ background-color: $red_700; color: $grey-50; }
+    &.coluna-2{ 
+      background-color: $red_500; 
+      color: $grey_50;
+      // box-shadow: 0px 0px 10px 5px rgba(#333, .3);
+    }
+    &.coluna-3{ 
+      background-color: $red_700; 
+      // box-shadow: 0px 0px 10px 5px rgba(#333, .5);
+      color: $grey-50; 
+    }
   }
 }
 
 section#depoimentos{
   padding: 100px 0;
-  background-color: $grey_200;
+  background-color: $grey_50;
   .slick-slide{
     font-size: 1.5rem;
     text-align: center;
@@ -246,6 +238,9 @@ section#depoimentos{
 section#contato{
   .coluna{
     padding: 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
   }
   .coluna-1{
     background-color: $grey_200;
@@ -257,17 +252,33 @@ section#contato{
     }
   }
   .coluna-2{
-    padding: 100px 20px;
     background-color: $grey_50;
-    .contato{
-      max-width: 600px;
+    color: $grey_50;
+    .content{
+      padding: 20px;
+      width: 100%;
       input{
         line-height: 2rem;
-        background-color: rgba(#fff, .5);
-        border: 2px solid $grey_200;;
+        background-color: rgba($grey_300, .5);
+        border: 2px solid rgba($grey_300, .5);
         border-radius: 0;
+        // color: $grey_300;
+        @include placeholder {
+          // color: $grey_300;
+        }
       }
     }
+  }
+  .coluna-3{
+    background-color: $red_500;
+    color: $grey_50;
+    align-items: center;
+    .content{
+      width: 100%;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
   }
   
 }
