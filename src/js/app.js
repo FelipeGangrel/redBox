@@ -165,7 +165,7 @@ $(document).ready(()=>{
                 "visibility": "simplified"
             },
             {
-                "color": "#ff0000"
+                "color": "#f44336"
             },
             {
                 "saturation": "-15"
@@ -210,7 +210,7 @@ $(document).ready(()=>{
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#ff0000"
+                "color": "#f44336"
             },
             {
                 "lightness": "80"

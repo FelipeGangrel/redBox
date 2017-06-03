@@ -127,7 +127,7 @@ $(document).ready(function () {
         "stylers": [{
             "visibility": "simplified"
         }, {
-            "color": "#ff0000"
+            "color": "#f44336"
         }, {
             "saturation": "-15"
         }, {
@@ -157,7 +157,7 @@ $(document).ready(function () {
         "featureType": "transit.line",
         "elementType": "geometry",
         "stylers": [{
-            "color": "#ff0000"
+            "color": "#f44336"
         }, {
             "lightness": "80"
         }]

@@ -1,7 +1,7 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'variaveis';
+@import 'bootstrap/bootstrap';
 @import 'animate';
 @import 'mixins';
-@import 'variables';
 @import 'slick';
 
 html, body {
@@ -281,4 +281,13 @@ section#contato{
 
   }
   
+}
+
+footer{
+  padding: 20px 0;
+  background-color: #414141;
+  color: #999;
+  a{
+    color: #ccc;
+  }
 }
